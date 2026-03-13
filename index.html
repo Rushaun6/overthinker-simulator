@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>overthinker simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>overthinker simulator</h1>
+      <p class="tagline">turn a short message into ranked, realistic interpretations — transparent rules, no fake percentages</p>
+    </header>
+
+    <section class="app-grid">
+      <form id="analyze-form" class="card input-card" onsubmit="return false;">
+        <label>
+          received message
+          <input id="message-input" placeholder='e.g. ok' maxlength="250" autocomplete="off" />
+        </label>
+
+        <label>
+          optional context (recent messages, newest last)
+          <textarea id="context-input" rows="4" placeholder="you: hey, them: ... , them: ok"></textarea>
+        </label>
+
+        <label class="half">
+          response delay (minutes)
+          <input id="delay-input" type="number" min="0" placeholder="e.g. 180" />
+        </label>
+
+        <div class="buttons">
+          <button id="analyze-btn" class="btn primary">analyze</button>
+          <button id="harder-btn" class="btn">overthink harder</button>
+          <button id="clear-btn" class="btn danger">clear</button>
+        </div>
+      </form>
+
+      <aside class="card output-card">
+        <div class="meter-row">
+          <div id="meter-badge" class="meter">calm</div>
+          <div id="short-summary" class="summary">enter a message to analyze</div>
+        </div>
+
+        <section id="interpretations" class="interpretations">
+          <!-- populated by JS -->
+        </section>
+
+        <details class="evidence">
+          <summary>why this output? (evidence)</summary>
+          <ul id="evidence-list"></ul>
+        </details>
+      </aside>
+    </section>
+
+    <footer>
+      <small>built with simple heuristics • ready to expand with real data</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
